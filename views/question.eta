@@ -1,0 +1,31 @@
+<% layout("./layouts/layout.eta") %>
+
+<h3>Question Title: <%= it.question.title %></h3>
+<h4>ID:<%= it.question.id %></h4>
+<h4>Text:<%= it.question.question_text %></h4>
+
+<h4>Add an option!</h4>
+
+<form method="POST" action="/questions/<%= it.question.id %>/options">
+Option Text :<br/>
+<textarea name="option_text"><%= it.text ? it.text : "" %></textarea><br/>
+Is Correct: <input type="checkbox" name = "is_correct"/>
+<input type="submit" value="Add"/>
+</form>
+
+<h4>-----------------</h4>
+<h4>Current Options</h4>
+
+<% if (it.options && it.options.length > 0) { %>
+
+<ul>
+<% it.options.forEach(option => { %>
+<li><%= option.option_text%>-<%= option.is_correct   %><form method="POST" action="/questions/<%= it.question.id %>/options/<%= option.id %>/delete"><input type="submit" value="Delete option"/></form></li>  
+<% }); %>
+</ul>
+
+<% } else { %>
+
+<form method="POST" action="/questions/<%= it.question.id %>/delete"><input type="submit" value="Delete question"/></form>
+
+<% } %>

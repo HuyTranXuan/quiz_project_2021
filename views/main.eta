@@ -1,0 +1,12 @@
+<% layout("./layouts/layout.eta") %>
+<h2>Questionssss!</h2>
+
+<p>This is an application where you can add and answer questions. Anyone using the application can add questions, add answer options and take quiz answering question that everyone contributed.</p>
+<p>If you haven't used the application before, you can start by <a href="/auth/register">registering</a>. If you have been here before, just <a href="/auth/login">log in!</a>!</p>
+<p>Take a look at <a href="/questions">your questions (requires login).</a></p>
+
+<p>Wanna try some <a href="/quiz">quiz</a>?</p>
+
+<p><a href="/statistics">Statistically</a> speaking, I usually get most of question right, but, who's counting?</p>
+
+<p>Test  <a href="/api/questions/random">Api</a></p>

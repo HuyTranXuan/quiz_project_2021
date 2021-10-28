@@ -1,0 +1,25 @@
+<% layout("./layouts/layout.eta") %>
+
+
+
+
+<% if (it.question) { %>
+
+<h4>Title:  <%= it.question.title  %></h4>
+<h4>Question: <%= it.question.question_text  %></h4>
+
+<% } else { %>
+
+<p>There are no questions so far!</p>
+
+<% } %>
+
+<% if (it.options && it.options.length > 0) { %>
+
+<ul>
+<% it.options.forEach(option => { %>
+<li><%= option.option_text%><form method="POST" action="/quiz/<%= it.question.id %>/options/<%= option.id %>"><input type="submit" value="Choose"/></form></li>  
+<% }); %>
+</ul>
+
+<% }  %>
