@@ -13,11 +13,10 @@ const app = new Application({
 new OakSession(app);
 
 app.use(errorMiddleware);
-app.use(renderMiddleware);
 app.use(authMiddleware);
 app.use(userMiddleware);
 app.use(serveStaticMiddleware);
-//app.use(renderMiddleware);
+app.use(renderMiddleware);
 app.use(router.routes());
 
 export { app };
