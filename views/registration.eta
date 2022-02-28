@@ -5,7 +5,7 @@
 <ul>
     <% Object.keys(it.validationErrors).forEach((attribute) => { %>
         <% Object.values(it.validationErrors[attribute]).forEach((err) => { %>
-            <li><%= err %></li>
+            <li><h4><%= err %></h4></li>
         <% }); %>
     <% }); %>
 </ul>
@@ -15,7 +15,9 @@
   <input type="email" name="email" value="<%= it.email ? it.email : "" %>"/><br/>
   Password:<br/>
   <input type="password" name="password" /><br/>
+  Re-type password:<br/>
+  <input type="password" name="repassword" /><br/>
   <input type="submit" value="Register" />
 </form>
- 
+<br>
 <a href="/auth/login">Already registered? Login here.</a>

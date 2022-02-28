@@ -9,7 +9,7 @@
 
 <% if (it.topUsers && it.topUsers.length > 0) { %>
 <p>Top <%= it.topUsers.length%> users:</p>
-<ul>
+<ul class="statistics">
 <% it.topUsers.forEach(user => { %>
 <li>Questions from user with email:<%= user.email%> got <%= user.count%> answer(s) </li>  
 <% }); %>

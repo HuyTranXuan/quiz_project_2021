@@ -5,6 +5,7 @@ import { validasaur } from "../../deps.js";
 const registerValidationRules = {
   email: [validasaur.required, validasaur.minLength(4)],
   password: [validasaur.required, validasaur.minLength(4)],
+  repassword: [validasaur.required, validasaur.minLength(4)],
 };
 
 const registerUser = async ({ request, response, render }) => {
@@ -13,6 +14,7 @@ const registerUser = async ({ request, response, render }) => {
   const registerData = {
     email: params.get("email"),
     password: params.get("password"),
+    repassword: params.get("repassword"),
   };
 
   const [passes, errors] = await validasaur.validate(
@@ -28,17 +30,31 @@ const registerUser = async ({ request, response, render }) => {
     if (notAllowList && notAllowList.length > 0) {
       registerData.validationErrors = {
         error: {
-          error: "email address not available, please choose another one.",
+          error: "Email address not available, please choose another one.",
         },
       };
       render("registration.eta", registerData);
-    } else {
+    } else if (registerData.password != registerData.repassword) {
+      registerData.validationErrors = {
+        error: {
+          error: "Confirm password does not match!",
+        },
+      };
+      render("registration.eta", registerData);
+    }
+
+     else {
       await userService.addUser(
         registerData.email,
         await bcrypt.hash(registerData.password),
       );
 
-      response.redirect("/auth/login");
+      // response.redirect("/auth/login");
+      render("login.eta", {
+        validationErrors:
+          "Successfully Register!",
+      });
+      return;
     }
   }
 };

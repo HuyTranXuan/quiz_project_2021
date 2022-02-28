@@ -16,9 +16,11 @@
 <h4>Add a question!</h4>
 
 <form method="POST" action="/questions">
-Title:<br/>
-<input type="text" name="title" value="<%= it.title ? it.title : "" %>"/><br/>
-Question Text :<br/>
+Title:
+<br/>
+<input type="text" name="title" value="<%= it.title ? it.title : "" %>"/>
+<br/>
+Question Text:<br/>
 <textarea name="question_text"><%= it.text ? it.text : "" %></textarea><br/>
 <input type="submit" value="Add"/>
 </form>
