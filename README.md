@@ -1,4 +1,8 @@
-======OVERVIEW========== This is an application where you can add and answer
+## [Demo link](https://deno-project2.herokuapp.com/)
+
+# Quiz-app-
+======OVERVIEW========== 
+This is an application where you can add and answer
 questions. Any logged in user using the application can add questions, add
 answer options and take quiz answering question that everyone contributed.
 
@@ -42,8 +46,8 @@ example: { "questionId": 1, "optionId": 3, } . This indicate your answer id (3)
 to the question with the id (1). The respone is a JSON document with a boolean
 attribute 'correct' that will let you know you are right or wrong.
 
-======DATABASE CONFIGURATION INSTRUCTION========== The application use a
-database with the following code:
+======DATABASE CONFIGURATION INSTRUCTION========== 
+The application use a database with the following code:
 
 CREATE TABLE users ( id SERIAL PRIMARY KEY, email VARCHAR(255) UNIQUE, password
 CHAR(60) );
@@ -62,17 +66,17 @@ correct BOOLEAN DEFAULT false );
 
 CREATE UNIQUE INDEX ON users((lower(email)));
 
-======RUN THE APPLICATION LOCALLY INSTRUCTION========== To run the app locally
-you need to open the terminal windown, navigate to the root folder of the
+======RUN THE APPLICATION LOCALLY INSTRUCTION========== 
+To run the app locally you need to open the terminal windown, navigate to the root folder of the
 application and run the line: "deno run --allow-all --unstable run-locally.js"
 After that you can run the app by accessing the port 7777.
 
-======RUN THE APPLICATION TEST INSTRUCTION========== To run the app locally you
-need to open the terminal windown, navigate to the root folder of the
+======RUN THE APPLICATION TEST INSTRUCTION========== 
+To run the app locally you need to open the terminal windown, navigate to the root folder of the
 application and run the line: "deno test --allow-all --unstable"
 
-======ONLINE VERSION OF THE APP========== You can access the online version of
-the app by follow the link below. https://deno-project2.herokuapp.com/
+======ONLINE VERSION OF THE APP========== 
+You can access the online version of the app by follow the link below. https://deno-project2.herokuapp.com/
 
 Due to the error with the file renderMiddleware, the real content of the file can be found here:
 import { configure, renderFile } from "../deps.js";
